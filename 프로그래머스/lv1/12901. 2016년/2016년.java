@@ -8,7 +8,7 @@ class Solution {
         for (int i = 0; i < a; i++) {
             totalDate += month[i];
         }
-        totalDate += b; // 145 세어보니 맞음
+        totalDate += b;
 
         while (true) {
             answer = week[0];
