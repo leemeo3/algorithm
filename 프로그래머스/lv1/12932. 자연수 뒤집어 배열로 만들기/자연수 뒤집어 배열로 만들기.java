@@ -6,8 +6,7 @@ class Solution {
         int cnt = 0;
     
         for (int i = resultLen; i >= 0; i--) {
-            answer[cnt] = Integer.parseInt(String.valueOf(result.charAt(i)));
-            cnt++;
+            answer[cnt++] = Integer.parseInt(String.valueOf(result.charAt(i)));
         }
         return answer;
     }
