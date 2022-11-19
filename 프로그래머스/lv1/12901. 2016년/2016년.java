@@ -1,28 +1,45 @@
 class Solution {
-  public String solution(int a, int b) {
-      String answer = "";
-    int[] day= {31,29,31,30,31,30,31,31,30,31,30,31};
-    int sum=0;
-    for(int i=0;i<a-1;i++){
-        sum+=day[i];
-    }    
-    sum+=b;
-      switch(sum%7){
-          case 0:
-              return "THU";
-          case 1:
-              return "FRI";
-          case 2:
-              return "SAT";
-          case 3:
-              return "SUN";
-          case 4:
-              return "MON";
-          case 5:
-              return "TUE";
-          case 6:
-              return "WED";
-      }
-      return null;
-  }
+    public String solution(int a, int b) {
+        String answer = "";
+        int[] month = {0,31,29,31,30,31,30,31,31,30,31,30,31};
+        //               1  2  3  4  5  6  7  8  9  10 11 12
+        String[] week = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};
+        int totalDate = 0;
+        for (int i = 0; i < a; i++) {
+            totalDate += month[i];
+        }
+        totalDate += b; // 145 세어보니 맞음
+
+        while (true) {
+            answer = week[0];
+            totalDate--;
+            if (totalDate == 0)break;
+            
+            answer = week[1];
+            totalDate--;
+            if (totalDate == 0)break;
+            
+            answer = week[2];
+            totalDate--;
+            if (totalDate == 0)break;
+            
+            answer = week[3];
+            totalDate--;
+            if (totalDate == 0)break;
+            
+            answer = week[4];
+            totalDate--;
+            if (totalDate == 0)break;
+            
+            answer = week[5];
+            totalDate--;
+            if (totalDate == 0)break;
+            
+            answer = week[6];
+            totalDate--;
+            if (totalDate == 0)break;
+        }
+        
+        return answer;
+    }
 }
