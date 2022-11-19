@@ -5,7 +5,7 @@ public class Solution {
         ArrayList<Integer> list = new ArrayList<>();
         int start = arr[0];
         list.add(start);
-        for (int i = 1; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             if (start != arr[i]) {
                 start = arr[i];
                 list.add(arr[i]);
