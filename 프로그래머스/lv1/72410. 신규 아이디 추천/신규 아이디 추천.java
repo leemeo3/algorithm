@@ -2,36 +2,30 @@ class Solution {
     public String solution(String new_id) {
         // 1단계
         String step2 = "";
-        step2 = new_id.toLowerCase();
-
+        step2 = new_id.toLowerCase(); // 모든 문자 소문자로 치환
         // 2단계
-        String step3 = step2.replaceAll("[^a-z0-9_.-]", "");
-
-        // 3단계
+        String step3 = step2.replaceAll("[^a-z0-9_.-]", ""); // 정규식을 통한 조건에 맞는 문자제외하고 모두 제거
+        // 3단계                                              // a부터z까지, 0부터9까지 _.-제외하고 전부 제거 (replaceAll 함수사용)
         String step4 = "";
-        // String new_id_3 = new_id_2.replaceAll("[.]+", ".");
-        step4 = step3.replaceAll("[.]+", ".");
-
+        step4 = step3.replaceAll("[.]+", ".");  // 마침표(.)가 2번이상 연속될시 마침표(.) 1개로 치환
         // 4단계
         String step5 = "";
-        String[] step5Result = step4.split("");
+        String[] step5Result = step4.split(""); // 문자열 배열화
         for (int i = 0; i < step5Result.length; i++) {
-            if (i == 0 || i == step5Result.length - 1) {
-                step5Result[i] = step5Result[i].replaceAll("\\.", "");
+            if (i == 0 || i == step5Result.length - 1) {  //i인덱스가 첫번째 이거나 마지막 이거나
+                step5Result[i] = step5Result[i].replaceAll("\\.", ""); // 마침표(.)가 있을 경우 제거
                 step5 += step5Result[i];
             }else {
                 step5 += step5Result[i];
             }
         }
-
         // 5단계
         String step6 = "";
-        if (step5.isEmpty() || step5 == null || step5.equals("")) {
+        if (step5.isEmpty() || step5 == null || step5.equals("")) { // 빈 문자열 일 경우 a로 치환
             step6 = "a";
         }else {
             step6 = step5;
         }
-
         // 6단계
         String step7 = "";
         if (step6.length() >= 16) {
@@ -49,8 +43,6 @@ class Solution {
         }else {
             step7 = step6;
         }
-
-
         // 7단계
         String answer = step7;
         if (answer.length() < 3) {
@@ -63,6 +55,5 @@ class Solution {
             }
         }
         return answer;
-
-    }
+        }
     }
