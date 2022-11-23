@@ -22,7 +22,6 @@ class Solution {
                     answer += String.valueOf((char)start);
                 }
             }else {
-                start = ((int)s.charAt(i) + n);
                 answer += " ";
             }
             i++;
