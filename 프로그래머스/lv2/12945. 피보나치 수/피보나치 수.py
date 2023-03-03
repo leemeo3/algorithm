@@ -1,10 +1,8 @@
 def solution(n):
-    answer = 0
-    fn0 = 0
-    fn1 = 1
-    for i in range(n-1) :
-        answer = fn0 + fn1
-        fn0 = fn1
-        fn1 = answer
-    answer = answer % 1234567
-    return answer
+    fn, f0 = 0, 0
+    f1 = 1
+    for i in range(n - 1) :
+        fn = f0 + f1
+        f0 = f1
+        f1 = fn
+    return fn % 1234567
