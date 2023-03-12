@@ -1,5 +1,4 @@
 def solution(s):
-    answer = []
     cnt = 0             # 반복 횟수
     zeroCnt = 0         # 제거할 0의 갯수
     while True :
@@ -13,6 +12,4 @@ def solution(s):
         s = format(len(check), 'b') # check의 길이 2진수 변환
         if s == "1" :               # 이진수 변환 값이 1이면 종료
             break
-    answer.append(cnt)
-    answer.append(zeroCnt)
-    return answer
+    return [cnt,zeroCnt]
