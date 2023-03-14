@@ -1,24 +1,21 @@
-from collections import deque
-
 def solution(s):
     answer = 0
-    result = deque(s)
+    s_list = list(s)
     
-    if len(s) % 2 == 0 :
-        for i in range(len(s)) :
-            last = result.popleft()
-            result.append(last)
-            slist = ''.join(result)
-            
-            while '[]' in slist or '()' in slist or '{}' in slist:
-                if '[]' in slist:
-                    slist = slist.replace('[]', '')
-                if '()' in slist:
-                    slist = slist.replace('()', '')
-                if '{}' in slist:
-                    slist = slist.replace('{}', '')
-            if slist == '' :
-                answer += 1
-        return answer
-    else :
-        return 0
+    for i in range(len(s)) :
+        if i == 0 :
+            s = ''.join(s_list)
+        else :
+            s_list.append(s_list[0])
+            del s_list[0]
+            s = ''.join(s_list)
+        while '[]' in s or '()' in s or '{}' in s:
+            if '[]' in s:
+                s = s.replace('[]', '')
+            if '()' in s:
+                s = s.replace('()', '')
+            if '{}' in s:
+                s = s.replace('{}', '')
+        if s == '' :
+            answer += 1
+    return answer
